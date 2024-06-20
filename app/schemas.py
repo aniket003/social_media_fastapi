@@ -21,7 +21,7 @@ class UserOut(BaseModel):
     created_at: datetime
 
     class Config:
-        orm_mode = True
+        orm_mode = True  # to make sqlaclchemy work with pydantic models
 
 
 class Post(PostBase):

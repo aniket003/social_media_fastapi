@@ -48,7 +48,7 @@ def create_posts(post: schemas.PostCreate, db: Session = Depends(get_db), curren
     new_post = models.Post(owner_id=current_user.id, **post.dict())
     db.add(new_post)
     db.commit()
-    db.refresh(new_post)
+    db.refresh(new_post)  # class Config:  orm_mode = True  # to make sqlaclchemy work with pydantic models
 
     return new_post
 
